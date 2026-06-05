@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DotCruz.Notifications.Delivery.Lambda/DotCruz.Notifications.Delivery.Lambda.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CommonTestUtilities/CommonTestUtilities.csproj" />
+    <Project Path="tests/DotCruz.Notifications.Delivery.Lambda.Test/DotCruz.Notifications.Delivery.Lambda.Test.csproj" />
+  </Folder>
+</Solution>
