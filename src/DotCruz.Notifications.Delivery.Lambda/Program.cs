@@ -4,6 +4,7 @@ using Amazon.Lambda.SQSEvents;
 using DotCruz.Notifications.Delivery.Lambda.Interfaces;
 using DotCruz.Notifications.Delivery.Lambda.Serialization;
 using DotCruz.Notifications.Delivery.Lambda.Services;
+using DotCruz.Notifications.Delivery.Lambda.Services.Senders;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DotCruz.Notifications.Delivery.Lambda;

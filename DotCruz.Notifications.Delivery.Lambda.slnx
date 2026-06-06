@@ -4,6 +4,7 @@
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/CommonTestUtilities/CommonTestUtilities.csproj" />
-    <Project Path="tests/DotCruz.Notifications.Delivery.Lambda.Test/DotCruz.Notifications.Delivery.Lambda.Test.csproj" />
+    <Project Path="tests/UseCases.Test/UseCases.Test.csproj" />
+    <Project Path="tests/Function.Test/Function.Test.csproj" />
   </Folder>
 </Solution>

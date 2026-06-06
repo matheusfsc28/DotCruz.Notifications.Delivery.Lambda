@@ -1,7 +1,7 @@
 using DotCruz.Notifications.Delivery.Lambda.Interfaces;
 using DotCruz.Notifications.Delivery.Lambda.Models;
 
-namespace DotCruz.Notifications.Delivery.Lambda.Services;
+namespace DotCruz.Notifications.Delivery.Lambda.Services.Senders;
 
 public class SmsSenderStrategy : INotificationSenderStrategy
 {

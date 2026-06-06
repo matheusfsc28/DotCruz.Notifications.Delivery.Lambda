@@ -3,7 +3,7 @@ using DotCruz.Notifications.Delivery.Lambda.Models;
 using MailKit.Net.Smtp;
 using MimeKit;
 
-namespace DotCruz.Notifications.Delivery.Lambda.Services;
+namespace DotCruz.Notifications.Delivery.Lambda.Services.Senders;
 
 public class EmailSenderStrategy : INotificationSenderStrategy
 {

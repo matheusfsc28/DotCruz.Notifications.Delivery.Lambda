@@ -1,19 +1,29 @@
-using System;
+using Bogus;
 using DotCruz.Notifications.Delivery.Lambda.Models;
 
-namespace CommonTestUtilities;
+namespace CommonTestUtilities.Models;
 
 public class NotificationPayloadBuilder
 {
-    private Guid _notificationId = Guid.NewGuid();
-    private string _type = "Email";
-    private string _recipient = "test@example.com";
-    private string _title = "Default Title";
-    private string _body = "Default Body";
+    private Guid _notificationId;
+    private string _type;
+    private string _recipient;
+    private string _title;
+    private string _body;
 
-    public NotificationPayloadBuilder WithNotificationId(Guid notificationId)
+    public NotificationPayloadBuilder()
     {
-        _notificationId = notificationId;
+        var faker = new Faker();
+        _notificationId = faker.Random.Guid();
+        _type = faker.PickRandom(new[] { "Email", "Sms", "Push" });
+        _recipient = faker.Person.Email;
+        _title = faker.Lorem.Sentence();
+        _body = faker.Lorem.Paragraph();
+    }
+
+    public NotificationPayloadBuilder WithNotificationId(Guid id)
+    {
+        _notificationId = id;
         return this;
     }
 

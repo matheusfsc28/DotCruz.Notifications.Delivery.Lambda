@@ -4,6 +4,7 @@ using DotCruz.Notifications.Delivery.Lambda.Serialization;
 using DotCruz.Notifications.Delivery.Lambda.UseCases.ProcessNotification;
 using MediatR;
 using System.Text.Json;
+using DotCruz.Notifications.Delivery.Lambda.Models;
 
 namespace DotCruz.Notifications.Delivery.Lambda;
 
@@ -22,10 +23,19 @@ public class FunctionHandlerService
         {
             context.Logger.LogInformation($"SQS Event Triggered: processing message {message.MessageId}");
 
-            var payload = JsonSerializer.Deserialize(message.Body, LambdaJsonSerializerContext.Default.NotificationPayload);
-            if (payload == null)
+            NotificationPayload? payload;
+            try
             {
-                context.Logger.LogError($"Failed to deserialize message {message.MessageId} body.");
+                payload = JsonSerializer.Deserialize(message.Body, LambdaJsonSerializerContext.Default.NotificationPayload);
+                if (payload == null)
+                {
+                    context.Logger.LogError($"Failed to deserialize message {message.MessageId} body.");
+                    continue;
+                }
+            }
+            catch (Exception ex)
+            {
+                context.Logger.LogError($"Failed to deserialize message {message.MessageId} body. Error: {ex.Message}");
                 continue;
             }
 
